@@ -1,0 +1,7 @@
+venv/
+logs/
+data/
+*.csv
+*.duckdb
+.user.yml
+.vscode/

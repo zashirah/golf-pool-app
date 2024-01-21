@@ -1,0 +1,4 @@
+name: golf
+type: duckdb
+options:
+  filename: golf.duckdb

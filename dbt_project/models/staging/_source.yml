@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: staging
+    meta: 
+      external_location: "{{ env_var('DBT_SOURCE_DATA_ROOT') }}/{name}*.csv"
+    tables:
+      - name: schedule
+      - name: field
+      - name: admin
+      - name: picks
+      - name: leaderboard
