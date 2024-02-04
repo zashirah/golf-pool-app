@@ -12,8 +12,4 @@ tournament_name = current['tournament_name'][0]
 
 t = Tournament('2024', tournament_name, tournament_id)
 
-print(t)
-
 field = t.field(write_table=True)
-
-print(field)

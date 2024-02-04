@@ -49,7 +49,7 @@
 ```sql pickem_leaderboard
     select 
         l.*,
-        lt.total
+        case when cut_total <= 2 then lt.score_total else 'CUT' end as total
 
     from golf.pickem_leaderboard l
     inner join golf.pickem_leaderboard_total lt
@@ -65,7 +65,7 @@
 
 <Dropdown
     data={tournament_list} 
-    defaultValue='Farmers Insurance Open'
+    defaultValue='WM Phoenix Open'
     name=tournament_name_filter
     value=tournament_name
     title='Tournament:'
@@ -103,7 +103,7 @@
         <Tabs>
             <Tab label="Tier 1">
 
-                <DataTable data={field_t1}>
+                <DataTable data={field_t1} search=true>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -113,7 +113,7 @@
             </Tab>
             <Tab label="Tier 2">
 
-                <DataTable data={field_t2}>
+                <DataTable data={field_t2} search=true>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -124,7 +124,7 @@
 
             <Tab label="Tier 3">
 
-                <DataTable data={field_t3}>
+                <DataTable data={field_t3} search=true>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -135,7 +135,7 @@
 
             <Tab label="Tier 4">
 
-                <DataTable data={field_t4}>
+                <DataTable data={field_t4} search=true>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -148,7 +148,7 @@
 
     <Tab label="Tournament Leaderboard">
 
-        <DataTable data={leaderboard}>
+        <DataTable data={leaderboard} search=true>
             <Column id="Pos"/>
             <Column id="player_name"/>
             <Column id="Thru"/>

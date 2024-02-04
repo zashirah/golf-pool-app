@@ -9,6 +9,7 @@ class Picks:
         self.tournament_name = tournament_name
         self.tournament_id = tournament_id
         self.sheet_name = parse.quote(self.tournament_name)
+        print(self.sheet_name)
         self.url = f"https://docs.google.com/spreadsheets/d/{self.sheet_id}/gviz/tq?tqx=out:csv&sheet={self.sheet_name}"
 
     def write_table(self, df):

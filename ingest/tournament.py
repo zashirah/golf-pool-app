@@ -57,8 +57,13 @@ class Tournament:
         df = df[df.columns[:11]]
         df['tournament_name'] = self.tournament_name
         df['tournament_id'] = self.tournament_id
-        if 'Odds To Win' in df.columns:
-            df.drop(columns='Odds To Win', inplace=True)
+        for col in df.columns:
+            if col not in [
+                'Pos','Unnamed: 1','Player','Total',
+                'Thru','Round','R1','R2','R3','R4',
+                'tournament_name','tournament_id'
+                ]:
+                df.drop(columns=col, inplace=True)
 
         cut_index = df[df['Pos'].str.contains('The following players failed to make the cut')].index
         df.drop(cut_index, inplace=True)
