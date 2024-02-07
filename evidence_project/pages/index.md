@@ -62,6 +62,11 @@
     from golf.picks
     where tournament_name = '${inputs.tournament_name_filter}'
 ```
+```sql picks_contextualized
+    select *
+    from golf.picks_contextualized
+    where tournament_name = '${inputs.tournament_name_filter}'
+```
 
 <Dropdown
     data={tournament_list} 
@@ -97,6 +102,16 @@
             If there is no data in this table, that is because the tournament hasn't started or started recently
         </Alert>
         
+    </Tab>
+    <Tab label="Picks">
+
+        <DataTable data={picks_contextualized}>
+            <Column id='user_id'/>
+            <Column id='tier1_pick'/>
+            <Column id='tier2_pick'/>
+            <Column id='tier3_pick'/>
+            <Column id='tier4_pick'/>
+        </DataTable>
     </Tab>
 
     <Tab label="Field / Tiers">

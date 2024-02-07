@@ -16,6 +16,7 @@ tier_levels as (
 
 select 
     f.tournament_name,
+    f.tournament_id,
     f.execution_time,
     f.player_id,
     f.first_name,
