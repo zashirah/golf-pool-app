@@ -32,7 +32,7 @@ jobs:
           pwd
           ls -ltra
           touch dbt_project/data/golf.duckdb
-          dbt run
+          dbt run --target prod
           pwd
           ls -ltra
           cp dbt_project/data/golf.duckdb evidence_project/sources/golf

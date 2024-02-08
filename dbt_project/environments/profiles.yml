@@ -4,3 +4,8 @@ dbt_project:
     dev:
       type: duckdb
       path: /Users/zachshirah/code/projects/golf-pool-app/dbt_project/data/golf.duckdb
+  target: prod
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PATH') }}"
