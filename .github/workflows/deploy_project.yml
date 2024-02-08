@@ -1,0 +1,44 @@
+name: 'Deploy to Netlify'
+
+on:
+  workflow_dispatch:
+    inputs:
+      days_ago:
+        required: true
+        default: 1
+
+env:
+  DBT_PROJECT_ROOT: ${{ github.workspace }}/dbt_project
+  DBT_PROJECT_DIR: ${{ github.workspace }}/dbt_project
+  DBT_SOURCE_DATA_ROOT: ${{ github.workspace }}/dbt_project/data
+  DBT_PROFILES_DIR: ${{ github.workspace }}/dbt_project/environments
+
+jobs:
+  deploy_evidence:
+    name: 'Deploy Evidence'
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content
+
+      - name: etl
+        run: |
+          make during_tournament
+        
+      - name: evidence install & build
+        run: |	
+          cd ${{ github.workspace }}/evidence_project && npm i -force
+          cd ${{ github.workspace }}/evidence_project && npm run build
+
+      - name: copy output to working directory
+        run: |
+          mkdir -p /home/runner/work/_temp/_github_home/build
+          cp -r ${{ github.workspace }}/evidence_project/build/* /home/runner/work/_temp/_github_home/build
+
+      - name: Deploy Netlify
+        uses: danakim/gh-action-deploy-netlify@master
+        with:
+          AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          DEPLOY_PROD: true
