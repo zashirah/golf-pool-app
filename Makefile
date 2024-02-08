@@ -21,6 +21,7 @@ dev_during_tournament:
 	cd evidence_project && npm run sources && npm run dev
 
 during_tournament:
+	pip install -r requirements.txt	
 	python ingest/run_during_tournament.py
 	cp *.csv dbt_project/data/
 	dbt run
