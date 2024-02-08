@@ -25,7 +25,7 @@ jobs:
       - name: etl
         run: |
           pip install -r ${{ github.workspace }}/requirements.txt	
-          python ${{ github.workspace }}/ingest/run_during_tournament.py
+          python ${{ github.workspace }}/ingest/run_before_tournament_start.py
           cp *.csv dbt_project/data/
           dbt run --target prod
           pwd
