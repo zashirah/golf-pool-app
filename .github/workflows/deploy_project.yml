@@ -24,7 +24,11 @@ jobs:
 
       - name: etl
         run: |
-          make during_tournament
+          pip install -r ${{ github.workspace }}/requirements.txt	
+          python ${{ github.workspace }}/ingest/run_during_tournament.py
+          cp ${{ github.workspace }}/ingest/*.csv ${{ github.workspace }}/dbt_project/data/
+          dbt run
+          cp ${{ github.workspace }}/dbt_project/data/golf.duckdb ${{ github.workspace }}/evidence_project/sources/golf
         
       - name: evidence install & build
         run: |	
