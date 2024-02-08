@@ -27,6 +27,7 @@ jobs:
           pip install -r ${{ github.workspace }}/requirements.txt	
           python ${{ github.workspace }}/ingest/run_during_tournament.py
           pwd
+          ls -ltra
           cp *.csv ${{ github.workspace }}/dbt_project/data/
           touch ${{ github.workspace }}/dbt_project/data/golf.duckdb
           dbt run
