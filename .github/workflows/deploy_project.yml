@@ -26,6 +26,7 @@ jobs:
         run: |
           pip install -r ${{ github.workspace }}/requirements.txt	
           python ${{ github.workspace }}/ingest/run_during_tournament.py
+          dbt run
           cp *.csv ${{ github.workspace }}/dbt_project/data/
           dbt run
           pwd
