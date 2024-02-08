@@ -34,7 +34,7 @@ jobs:
         
       - name: evidence install & build
         run: |	
-          cd ${{ github.workspace }}/evidence_project && npm i -force && npm run source && npm run build
+          cd ${{ github.workspace }}/evidence_project && npm i -force && npm run sources && npm run build
 
       - name: copy output to working directory
         run: |
