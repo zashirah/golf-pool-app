@@ -86,7 +86,7 @@
 <Tabs>
     <Tab label="Pickem Leaderboard">
 
-        <DataTable data={pickem_leaderboard}>
+        <DataTable data={pickem_leaderboard} rows=all>
             <Column id='user_id'/>
             <Column id='total'/>
             <Column id='tier1_pick'/>
@@ -105,7 +105,7 @@
     </Tab>
     <Tab label="Picks">
 
-        <DataTable data={picks_contextualized}>
+        <DataTable data={picks_contextualized} rows=all>
             <Column id='user_id'/>
             <Column id='tier1_pick'/>
             <Column id='tier2_pick'/>
@@ -118,7 +118,7 @@
         <Tabs>
             <Tab label="Tier 1">
 
-                <DataTable data={field_t1} search=true>
+                <DataTable data={field_t1} search=true rows=25>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -128,7 +128,7 @@
             </Tab>
             <Tab label="Tier 2">
 
-                <DataTable data={field_t2} search=true>
+                <DataTable data={field_t2} search=true rows=25>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -139,7 +139,7 @@
 
             <Tab label="Tier 3">
 
-                <DataTable data={field_t3} search=true>
+                <DataTable data={field_t3} search=true rows=25>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -150,7 +150,7 @@
 
             <Tab label="Tier 4">
 
-                <DataTable data={field_t4} search=true>
+                <DataTable data={field_t4} search=true rows=25>
                     <Column id="player_id"/>
                     <Column id="first_name"/>
                     <Column id="last_name"/>
@@ -163,7 +163,7 @@
 
     <Tab label="Tournament Leaderboard">
 
-        <DataTable data={leaderboard} search=true>
+        <DataTable data={leaderboard} search=true rows=25>
             <Column id="Pos"/>
             <Column id="player_name"/>
             <Column id="Thru"/>
