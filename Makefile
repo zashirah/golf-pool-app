@@ -22,7 +22,7 @@ dev_during_tournament:
 
 during_tournament:
 	pip install -r requirements.txt	
-	python ingest/run_during_tournament.py
-	cp *.csv dbt_project/data/
+	python ~/ingest/run_during_tournament.py
+	cp *.csv ~/dbt_project/data/
 	dbt run
-	cp dbt_project/data/golf.duckdb evidence_project/sources/golf
+	cp ~/dbt_project/data/golf.duckdb ~/evidence_project/sources/golf
