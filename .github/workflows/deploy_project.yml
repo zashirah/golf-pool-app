@@ -28,6 +28,7 @@ jobs:
           python ${{ github.workspace }}/ingest/run_during_tournament.py
           cp *.csv ${{ github.workspace }}/dbt_project/data/
           dbt run
+          pwd
           cp ${{ github.workspace }}/dbt_project/data/golf.duckdb ${{ github.workspace }}/evidence_project/sources/golf
         
       - name: evidence install & build
