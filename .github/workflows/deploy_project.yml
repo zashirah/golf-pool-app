@@ -31,7 +31,7 @@ jobs:
           cp *.csv dbt_project/data/
           pwd
           ls -ltra
-          touch ${{ github.workspace }}/dbt_project/data/golf.duckdb
+          touch dbt_project/data/golf.duckdb
           dbt run
           pwd
           ls -ltra
