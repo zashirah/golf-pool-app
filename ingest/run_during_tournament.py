@@ -14,6 +14,6 @@ tournament_name = current['tournament_name'][0]
 t = Tournament('2024', tournament_name, tournament_id)
 p = Picks('2024', tournament_name, tournament_id)
 
-field = t.field(write_table=True)
+# field = t.field(write_table=True)
 leaderboard = t.leaderboard(write_table=True)
 picks = p.picks(write_table=True)
