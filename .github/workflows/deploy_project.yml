@@ -30,6 +30,7 @@ jobs:
           dbt run --target prod 
           pwd
           ls -ltra
+          ls -ltra ${{ github.workspace }}/dbt_project/data/
           cp ${{ github.workspace }}/dbt_project/data/golf.duckdb ${{ github.workspace }}/evidence_project/sources/golf
         
       - name: evidence install & build
