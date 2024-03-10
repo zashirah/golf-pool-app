@@ -32,7 +32,7 @@ cut_score as (
         tournament_id,
         tournament_name,
         user_id,
-        sum(value) as cut_total
+        sum(value)::TINYINT as cut_total
     from unpivot_cut
     group by all
 )
