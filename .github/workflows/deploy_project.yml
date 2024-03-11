@@ -32,13 +32,9 @@ jobs:
           ls -ltra
           ls -ltra ${{ github.workspace }}/dbt_project/data/
           cp ${{ github.workspace }}/dbt_project/data/golf.duckdb ${{ github.workspace }}/evidence_project/sources/golf
-        
-      - name: evidence install & build
-        run: |	
+
           cd ${{ github.workspace }}/evidence_project && npm i -force && npm run sources && npm run build
 
-      - name: copy output to working directory
-        run: |
           mkdir -p /home/runner/work/_temp/_github_home/build
           cp -r ${{ github.workspace }}/evidence_project/build/* /home/runner/work/_temp/_github_home/build
 
